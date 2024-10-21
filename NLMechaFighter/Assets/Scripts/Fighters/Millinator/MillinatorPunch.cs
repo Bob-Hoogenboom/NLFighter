@@ -2,9 +2,8 @@ using FSM;
 
 namespace Millinator
 {
-    public class MillinatorWalk : AState<MillinatorController>
+    public class MillinatorPunch : AState<MillinatorController>
     {
-
         public override void Start(MillinatorController runner)
         {
             base.Start(runner);

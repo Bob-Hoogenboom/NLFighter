@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Millinator
 {
-    public class MillinatorController : MonoBehaviour, IStateRunner
+    public class MillinatorController : MonoBehaviour, IStateRunner, IFighter
     {
         [Header("StateMachine")]
         public StateMachine<MillinatorController> stateMachine;
@@ -13,6 +13,11 @@ namespace Millinator
         //States
         public MillinatorIdle idleState { get; private set; } = new MillinatorIdle();
         public MillinatorWalk walkState { get; private set; } = new MillinatorWalk();
+        public MillinatorPunch punchState { get; private set; } = new MillinatorPunch();
+
+        [Header("IFighter")]
+        [SerializeField] private int _fighterIndex; 
+        public int fighterIndex => _fighterIndex;
 
 
         private void Start()
