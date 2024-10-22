@@ -18,10 +18,10 @@ namespace Millinator
 
 
             //transition to punch or walk animation if input is given
-            /*if (runner.moveDirection .magnitude > 0.1)
+            if (runner.moveVector.magnitude > 0.1)
             {
-                onSwitch(runner.moveState);
-            }*/
+                onSwitch(runner.walkState);
+            }
         }
 
         public override void Complete(MillinatorController runner)

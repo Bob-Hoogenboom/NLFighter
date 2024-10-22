@@ -15,6 +15,11 @@ namespace Millinator
         {
             base.Update(runner);
             //transition to idle animation if no input is given     
+            if (runner.moveVector.magnitude > 0.1)
+            {
+                onSwitch(runner.idleState);
+            }
+
             //transition to punch when specific input is given
         }
 

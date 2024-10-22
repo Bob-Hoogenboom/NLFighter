@@ -542,6 +542,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7507374454109162295, guid: e5b1f5b483463f24483430dae56b1516, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507374454109162295, guid: e5b1f5b483463f24483430dae56b1516, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507374454109162295, guid: e5b1f5b483463f24483430dae56b1516, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8474432765606876102}
+    - target: {fileID: 7507374454109162295, guid: e5b1f5b483463f24483430dae56b1516, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507374454109162295, guid: e5b1f5b483463f24483430dae56b1516, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507374454109162295, guid: e5b1f5b483463f24483430dae56b1516, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InputHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507374454109162295, guid: e5b1f5b483463f24483430dae56b1516, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8732518335270600109, guid: e5b1f5b483463f24483430dae56b1516, type: 3}
       propertyPath: m_Name
       value: PlayerInput
@@ -551,6 +579,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5b1f5b483463f24483430dae56b1516, type: 3}
+--- !u!114 &8474432765606876102 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1418196147962253375, guid: e5b1f5b483463f24483430dae56b1516, type: 3}
+  m_PrefabInstance: {fileID: 8474432765606876101}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbdddb69769c6b24e9005f50c03ef87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -19,6 +19,8 @@ namespace Millinator
         [SerializeField] private int _fighterIndex; 
         public int fighterIndex => _fighterIndex;
 
+        [HideInInspector] public Vector2 moveVector;
+        [HideInInspector] public bool pressedPunched = false;
 
         private void Start()
         {
@@ -31,6 +33,19 @@ namespace Millinator
         {
             stateMachine?.Update();
         }
+
+
+        #region InputValues
+        public void SetMoveVector(Vector2 value)
+        {
+            moveVector = value;
+        }
+
+        public void SetPunchBool(bool value)
+        {
+            pressedPunched = value;
+        }
+        #endregion
 
     }
 }
