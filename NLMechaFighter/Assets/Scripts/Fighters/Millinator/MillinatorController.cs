@@ -6,6 +6,11 @@ namespace Millinator
 {
     public class MillinatorController : MonoBehaviour, IStateRunner, IFighter
     {
+        [Header("General")]
+        public Animator anim;
+
+
+
         [Header("StateMachine")]
         public StateMachine<MillinatorController> stateMachine;
         public ScratchPad sharedData => new ScratchPad();
@@ -27,13 +32,14 @@ namespace Millinator
             //initialize statemachine and entry state
             stateMachine = new StateMachine<MillinatorController>(this);
             stateMachine.SetState(idleState);
+
+            anim = GetComponentInChildren<Animator>();
         }
 
         private void Update()
         {
             stateMachine?.Update();
         }
-
 
         #region InputValues
         public void SetMoveVector(Vector2 value)
@@ -44,8 +50,8 @@ namespace Millinator
         public void SetPunchBool(bool value)
         {
             pressedPunched = value;
+            Debug.Log(value);
         }
         #endregion
-
     }
 }
