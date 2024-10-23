@@ -14,6 +14,7 @@ public class InputHandler : MonoBehaviour
     private IFighter _mechController;
     private PlayerInput _playerInput;
 
+
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();

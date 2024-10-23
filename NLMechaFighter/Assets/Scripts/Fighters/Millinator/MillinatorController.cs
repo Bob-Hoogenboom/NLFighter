@@ -4,12 +4,13 @@ using UnityEngine;
 
 namespace Millinator
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class MillinatorController : MonoBehaviour, IStateRunner, IFighter
     {
         [Header("General")]
         public Animator anim;
-
-
+        public Rigidbody rb;
+        public Transform cam;
 
         [Header("StateMachine")]
         public StateMachine<MillinatorController> stateMachine;
@@ -34,6 +35,8 @@ namespace Millinator
             stateMachine.SetState(idleState);
 
             anim = GetComponentInChildren<Animator>();
+            rb = GetComponent<Rigidbody>();
+            cam = Camera.main.transform;
         }
 
         private void Update()
@@ -50,7 +53,6 @@ namespace Millinator
         public void SetPunchBool(bool value)
         {
             pressedPunched = value;
-            Debug.Log(value);
         }
         #endregion
     }
