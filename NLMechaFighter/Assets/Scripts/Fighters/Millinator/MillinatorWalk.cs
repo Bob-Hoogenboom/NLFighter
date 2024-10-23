@@ -43,21 +43,21 @@ namespace Millinator
             runner.anim.SetBool(_walkAnim, false);
         }
 
-        //#rotation fucntion()
 
-        //#move function()
         private void Move(MillinatorController runner)
         {
+            //movement
             Vector3 verticalAxis = new Vector3(runner.cam.transform.forward.x, 0, runner.cam.transform.forward.z).normalized;
             Vector3 horizontalAxis = new Vector3(runner.cam.transform.right.x, 0, runner.cam.transform.right.z).normalized;
 
-
-            float singleStep = (_walkSpeed/2) * Time.deltaTime;
+            //rotation
+            float singleStep = _walkSpeed * Time.deltaTime ;
             Vector3 direction = new Vector3(runner.moveVector.x, 0.0f, runner.moveVector.y).normalized;
             direction = direction.x * horizontalAxis + direction.z * verticalAxis;
 
             Vector3 newDirection = Vector3.RotateTowards(runner.transform.forward, direction, singleStep, 0.0f);
 
+            //Apply rotation and movement
             runner.transform.rotation = Quaternion.LookRotation(newDirection);
             runner.rb.MovePosition(runner.transform.position + direction * _walkSpeed * Time.deltaTime);
         }
