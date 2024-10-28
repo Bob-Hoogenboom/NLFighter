@@ -16,8 +16,10 @@ namespace Millinator
             //start Punch Animation
             _punchAnim = Animator.StringToHash("Punch");
             runner.anim.SetTrigger(_punchAnim);
-            _switchTime = runner.anim.GetCurrentAnimatorStateInfo(0).normalizedTime; //#Fix Get Animation time 
-
+            if(_switchTime <= 0)
+            {
+                _switchTime = runner.anim.GetCurrentAnimatorStateInfo(0).normalizedTime; //#Fix Get Animation time 
+            }
         }
 
         public override void Update(MillinatorController runner)

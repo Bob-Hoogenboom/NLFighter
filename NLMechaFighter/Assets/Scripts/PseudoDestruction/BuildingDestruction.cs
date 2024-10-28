@@ -13,17 +13,19 @@ public class BuildingDestruction : MonoBehaviour, IDestroyable
 
     public void DestructionUpdate()
     {
-        if (!(destructionPhaseIndex >= destructionPhase.Length))
+        if (!(destructionPhaseIndex == destructionPhase.Length -1))
         {
+            Debug.Log(destructionPhaseIndex + " Length: " + destructionPhase.Length);
             destructionPhase[destructionPhaseIndex].SetActive(false);
             destructionPhaseIndex ++;
             destructionPhase[destructionPhaseIndex].SetActive(true);
 
         }
 
-        if (destructionPhaseIndex == destructionPhase.Length +1)
+        if (destructionPhaseIndex >= destructionPhase.Length -1)
         {
             _boxCol.enabled = false;
+            this.enabled = false; //failsave, disable entire script for security
         }
     }
 }
