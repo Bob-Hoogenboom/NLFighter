@@ -53,6 +53,7 @@ namespace Millinator
         public void SetPunchBool(bool value)
         {
             pressedPunched = value;
+            Debug.Log("Punched: " + value);
         }
         #endregion
     }

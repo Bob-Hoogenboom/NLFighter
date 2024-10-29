@@ -30,6 +30,6 @@ public class InputHandler : MonoBehaviour
 
     public void OnPunch(CallbackContext context)
     {
-        _mechController.SetPunchBool(context.performed);
+        _mechController.SetPunchBool(!context.canceled);
     }
 }
