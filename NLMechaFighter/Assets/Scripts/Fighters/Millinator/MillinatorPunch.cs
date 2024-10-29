@@ -49,14 +49,12 @@ namespace Millinator
 
             if(Physics.Raycast(rayOrigin, runner.transform.TransformDirection(Vector3.forward), out _hit, 5f))
             {
-                IDestroyable destroyable = _hit.transform.gameObject.GetComponent<IDestroyable>();
-                if (destroyable != null)
+                if (_hit.transform.gameObject.TryGetComponent(out IDestroyable destroyable))
                 {
                     destroyable.DestructionUpdate();
                 }
 
-                IFighter fighter = _hit.transform.gameObject.GetComponent<IFighter>();
-                if (fighter != null)
+                if (_hit.transform.gameObject.TryGetComponent(out IFighter fighter))
                 {
                     //calculate how close you are to other fighter
                     //deal damage approximatly on your distance

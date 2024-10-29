@@ -15,7 +15,7 @@ public class BuildingDestruction : MonoBehaviour, IDestroyable
     {
         if (!(destructionPhaseIndex == destructionPhase.Length -1))
         {
-            Debug.Log(destructionPhaseIndex + " Length: " + destructionPhase.Length);
+            //#linked list?
             destructionPhase[destructionPhaseIndex].SetActive(false);
             destructionPhaseIndex ++;
             destructionPhase[destructionPhaseIndex].SetActive(true);
