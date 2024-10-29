@@ -18,7 +18,7 @@ namespace Millinator
             runner.anim.SetTrigger(_punchAnim);
             if(_switchTime <= 0)
             {
-                _switchTime = runner.anim.GetCurrentAnimatorStateInfo(0).normalizedTime; //#Fix Get Animation time 
+                _switchTime = 1f; //#Fix Get Animation time 
             }
         }
 
