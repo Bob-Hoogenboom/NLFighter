@@ -42,13 +42,6 @@ public class CameraController : MonoBehaviour
     {
         Vector2 screenSize = new Vector2(Screen.width, Screen.height);
 
-        float maxDistance = 0f;
-        for (int i = 0; i < cameraTrackables.Count; i++)
-        {
-            float distance = Vector3.Distance(cameraTrackables[i].transform.position, this.transform.position);
-            maxDistance = Mathf.Max(maxDistance, distance);
-        }
-
         Vector2 characterScreenPoint = _camera.WorldToScreenPoint(cameraTrackables[0].transform.position);
 
         //increase zoom if characters are going out of screen
