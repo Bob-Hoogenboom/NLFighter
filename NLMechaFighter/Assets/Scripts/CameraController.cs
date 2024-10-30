@@ -10,14 +10,14 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float minZoom = 3f;
     [SerializeField] private float maxZoom = 10f;
     [SerializeField] private float zoomSpeed = 1f;
-    private float currentZoom = 5f;
+    private float _currentZoom = 3f;
 
     private Camera _camera;
 
     private void Start()
     {
         _camera = Camera.main;
-        _camera.transform.localPosition = new Vector3(0f, 0f, currentZoom);
+        _camera.transform.localPosition = new Vector3(0f, 0f, _currentZoom);
         _camera.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
         this.transform.rotation = Quaternion.Euler(-45f, 45f, 0f);
     }
@@ -42,21 +42,24 @@ public class CameraController : MonoBehaviour
     {
         Vector2 screenSize = new Vector2(Screen.width, Screen.height);
 
-        Vector2 characterScreenPoint = _camera.WorldToScreenPoint(cameraTrackables[0].transform.position);
-
-        //increase zoom if characters are going out of screen
-        if (characterScreenPoint.x < pixelMargin || characterScreenPoint.x > screenSize.x - pixelMargin || characterScreenPoint.y < pixelMargin || characterScreenPoint.y > screenSize.y - pixelMargin)
+        foreach (var trackable in cameraTrackables)
         {
-            currentZoom += zoomSpeed * Time.deltaTime;
+            Vector2 trackablePoint = _camera.WorldToScreenPoint(trackable.transform.position);
+
+            //increase zoom if characters are going out of screen
+            if (trackablePoint.x < pixelMargin || trackablePoint.x > screenSize.x - pixelMargin || trackablePoint.y < pixelMargin || trackablePoint.y > screenSize.y - pixelMargin)
+            {
+                _currentZoom += zoomSpeed * Time.deltaTime;
+            }
+
+            //decrease zoom if characters are getting closer to eachother
+            if (trackablePoint.x > pixelMargin * 2 && trackablePoint.x < screenSize.x - pixelMargin * 2 && trackablePoint.y > pixelMargin * 2 && trackablePoint.y < screenSize.y - pixelMargin * 2)
+            {
+                _currentZoom -= zoomSpeed * Time.deltaTime;
+            }
         }
 
-        //decrease zoom if characters are getting closer to eachother
-        if (characterScreenPoint.x > pixelMargin*2 && characterScreenPoint.x < screenSize.x - pixelMargin*2 && characterScreenPoint.y > pixelMargin*2 && characterScreenPoint.y < screenSize.y - pixelMargin*2)
-        {
-            currentZoom -= zoomSpeed * Time.deltaTime;
-        }
-
-        currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
-        _camera.transform.localPosition = new Vector3(0f, 0f, currentZoom);
+        _currentZoom = Mathf.Clamp(_currentZoom, minZoom, maxZoom);
+        _camera.transform.localPosition = new Vector3(0f, 0f, _currentZoom);
     }
 }
