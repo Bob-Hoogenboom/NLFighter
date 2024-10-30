@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float pixelMargin = 50f;
     [SerializeField] private float minZoom = 3f;
     [SerializeField] private float maxZoom = 10f;
+    [SerializeField] private float zoomSpeed = 1f;
     private float currentZoom = 5f;
 
     private Camera _camera;
@@ -36,6 +37,7 @@ public class CameraController : MonoBehaviour
         SetCorrectZoom();
     }
 
+
     private void SetCorrectZoom()
     {
         Vector2 screenSize = new Vector2(Screen.width, Screen.height);
@@ -47,7 +49,21 @@ public class CameraController : MonoBehaviour
             maxDistance = Mathf.Max(maxDistance, distance);
         }
 
-        currentZoom = Mathf.Clamp(maxDistance, minZoom, maxZoom);
+        Vector2 characterScreenPoint = _camera.WorldToScreenPoint(cameraTrackables[0].transform.position);
+
+        //increase zoom if characters are going out of screen
+        if (characterScreenPoint.x < pixelMargin || characterScreenPoint.x > screenSize.x - pixelMargin || characterScreenPoint.y < pixelMargin || characterScreenPoint.y > screenSize.y - pixelMargin)
+        {
+            currentZoom += zoomSpeed * Time.deltaTime;
+        }
+
+        //decrease zoom if characters are getting closer to eachother
+        if (characterScreenPoint.x > pixelMargin*2 && characterScreenPoint.x < screenSize.x - pixelMargin*2 && characterScreenPoint.y > pixelMargin*2 && characterScreenPoint.y < screenSize.y - pixelMargin*2)
+        {
+            currentZoom -= zoomSpeed * Time.deltaTime;
+        }
+
+        currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
         _camera.transform.localPosition = new Vector3(0f, 0f, currentZoom);
     }
 }

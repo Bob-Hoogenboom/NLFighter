@@ -173,6 +173,7 @@ MonoBehaviour:
   pixelMargin: 50
   minZoom: 5
   maxZoom: 13
+  zoomSpeed: 3
 --- !u!1 &541582749
 GameObject:
   m_ObjectHideFlags: 0
