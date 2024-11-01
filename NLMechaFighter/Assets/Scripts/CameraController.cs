@@ -18,7 +18,8 @@ public class CameraController : MonoBehaviour
     {
         _camera = Camera.main;
         _camera.transform.localPosition = new Vector3(0f, 0f, _currentZoom);
-        _camera.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+        Vector3 lookDirection = transform.position - _camera.transform.position;
+        _camera.transform.rotation = Quaternion.LookRotation(lookDirection);
         this.transform.rotation = Quaternion.Euler(-45f, 45f, 0f);
     }
 
