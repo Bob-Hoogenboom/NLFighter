@@ -1,28 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BuildingDestruction : MonoBehaviour, IDestroyable
 {
     [SerializeField] private GameObject[] destructionPhase;
-    [SerializeField]private int destructionPhaseIndex = 0;
     private BoxCollider _boxCol;
+
+    private LinkedList<GameObject> destructionPhases = new LinkedList<GameObject>();
+    private LinkedListNode<GameObject> currentPhase;
+
+    public UnityEvent OnNextPhase = new UnityEvent();
 
     private void Start()
     {
         _boxCol = GetComponent<BoxCollider>();
+
+        foreach (GameObject phase in destructionPhase)
+        {
+            destructionPhases.AddLast(phase);
+        }
+        currentPhase = destructionPhases.First;
     }
 
     public void DestructionUpdate()
     {
-        if (!(destructionPhaseIndex == destructionPhase.Length -1))
+        if (currentPhase != destructionPhases.Last)
         {
-            //#linked list?
-            destructionPhase[destructionPhaseIndex].SetActive(false);
-            destructionPhaseIndex ++;
-            destructionPhase[destructionPhaseIndex].SetActive(true);
-
+            currentPhase.Value.SetActive(false);
+            currentPhase = currentPhase.Next;
+            currentPhase.Value.SetActive(true);
+            OnNextPhase.Invoke();
         }
 
-        if (destructionPhaseIndex >= destructionPhase.Length -1)
+        if (currentPhase == destructionPhases.Last)
         {
             _boxCol.enabled = false;
             this.enabled = false; //failsave, disable entire script for security
