@@ -1,23 +1,21 @@
 using FSM;
 using UnityEngine;
-using UnityEngine.Windows;
 
-namespace Millinator
+namespace Cheeseinator
 {
-    public class MillinatorWalk : AState<MillinatorController>
+    public class CheeseinatorMove : AState<CheeseinatorController>
     {
         private int _walkAnim;
         private float _walkSpeed = 20f;
 
-        public override void Start(MillinatorController runner)
+        public override void Start(CheeseinatorController runner)
         {
             base.Start(runner);
-
-            _walkAnim = Animator.StringToHash("IsWalking");
+            _walkAnim = Animator.StringToHash("IsMoving");
             runner.anim.SetBool(_walkAnim, true);
         }
 
-        public override void Update(MillinatorController runner)
+        public override void Update(CheeseinatorController runner)
         {
             base.Update(runner);
 
@@ -34,25 +32,22 @@ namespace Millinator
             {
                 onSwitch(runner.punchState);
             }
-
         }
 
-        public override void Complete(MillinatorController runner)
+        public override void Complete(CheeseinatorController runner)
         {
             base.Complete(runner);
-
             runner.anim.SetBool(_walkAnim, false);
         }
 
-
-        private void Move(MillinatorController runner)
+        private void Move(CheeseinatorController runner)
         {
             // Movement
             Vector3 verticalAxis = new Vector3(runner.cam.transform.forward.x, 0, runner.cam.transform.forward.z).normalized;
             Vector3 horizontalAxis = new Vector3(runner.cam.transform.right.x, 0, runner.cam.transform.right.z).normalized;
 
             // Rotation
-            float singleStep = _walkSpeed * Time.deltaTime ;
+            float singleStep = _walkSpeed * Time.deltaTime;
             Vector3 direction = new Vector3(runner.moveVector.x, 0.0f, runner.moveVector.y).normalized;
             direction = direction.x * horizontalAxis + direction.z * verticalAxis;
 

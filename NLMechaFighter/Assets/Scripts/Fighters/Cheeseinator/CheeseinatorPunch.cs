@@ -1,16 +1,16 @@
 using FSM;
 using UnityEngine;
 
-namespace Millinator
+namespace Cheeseinator
 {
-    public class MillinatorPunch : AState<MillinatorController>
+    public class CheeseinatorPunch : AState<CheeseinatorController>
     {
         private int _punchAnim;
         private float _switchTime;
         private RaycastHit _hit;
         private bool _donePunching = false;
 
-        public override void Start(MillinatorController runner)
+        public override void Start(CheeseinatorController runner)
         {
             base.Start(runner);
 
@@ -22,13 +22,13 @@ namespace Millinator
             }
         }
 
-        public override void Update(MillinatorController runner)
+        public override void Update(CheeseinatorController runner)
         {
             base.Update(runner);
-            
+
             _switchTime -= Time.deltaTime;
 
-            if (_switchTime <= 0.0f && !_donePunching) 
+            if (_switchTime <= 0.0f && !_donePunching)
             {
                 _donePunching = true;
                 CheckHit(runner);
@@ -36,7 +36,7 @@ namespace Millinator
             }
         }
 
-        public override void Complete(MillinatorController runner)
+        public override void Complete(CheeseinatorController runner)
         {
             base.Complete(runner);
 
@@ -44,7 +44,7 @@ namespace Millinator
             _donePunching = false;
         }
 
-        private void CheckHit(MillinatorController runner)
+        private void CheckHit(CheeseinatorController runner)
         {
             Vector3 pos = runner.transform.position;
             Vector3 rayOrigin = new Vector3(pos.x, pos.y + 2, pos.z);
