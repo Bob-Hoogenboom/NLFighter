@@ -3,7 +3,32 @@ guid: baf7853201531fc41a64c738f395f39c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Primary
+    second: {fileID: 2100000, guid: 60b6168a8a25f9f448bd5bf420f8ef76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: quat
+    second: {fileID: 2100000, guid: 6ba31c7ad2d90d945814f8774c46eb0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sec
+    second: {fileID: 2100000, guid: a2acec939f065234c97090366cc1baac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tet
+    second: {fileID: 2100000, guid: 3c32afae0f040f44dbe71d0ed5af3daf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: waaier
+    second: {fileID: 2100000, guid: 2144fdb09ecf90443bf4a0b9b8f6eeec, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
