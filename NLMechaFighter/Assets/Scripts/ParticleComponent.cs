@@ -35,7 +35,6 @@ public class ParticleComponent : MonoBehaviour
         ParticleSystem.MainModule mainModule = particleSystem.main;
         ParticleSystem.ShapeModule shapeModule = particleSystem.shape;
         mainModule.loop = true;
-        //shapeModule.position = transform.position;
 
         particleSystem.Play();
     }
