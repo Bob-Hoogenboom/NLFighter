@@ -42,7 +42,7 @@ public partial class @MechInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""16e3784a-2bee-4ca6-930a-6a184daea441"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],

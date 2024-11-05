@@ -14,7 +14,6 @@ public class InputHandler : MonoBehaviour
     private IFighter _mechController;
     private PlayerInput _playerInput;
 
-
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -28,8 +27,12 @@ public class InputHandler : MonoBehaviour
         _mechController.SetMoveVector(context.ReadValue<Vector2>());
     }
 
+
     public void OnPunch(CallbackContext context)
     {
-        _mechController.SetPunchBool(!context.canceled);
+        if (context.started )
+        {
+            _mechController.TriggerPunch();
+        }   
     }
 }

@@ -1,6 +1,7 @@
 using FSM;
 using UnityEngine;
 
+
 namespace Cheeseinator
 {
     [RequireComponent(typeof(Rigidbody))]
@@ -24,8 +25,17 @@ namespace Cheeseinator
         [SerializeField] private int _fighterIndex;
         public int fighterIndex => _fighterIndex;
 
+        [SerializeField] private float health;
+        public float Health
+        {
+            get => health;
+            set => health = value;
+        }
+        public HealthBar healthBar;
+
+        [Header("Input")]
         [HideInInspector] public Vector2 moveVector;
-        [HideInInspector] public bool pressedPunched = false;
+
 
         private void Start()
         {
@@ -36,11 +46,25 @@ namespace Cheeseinator
             anim = GetComponentInChildren<Animator>();
             rb = GetComponent<Rigidbody>();
             cam = Camera.main.transform;
+
+            if (healthBar != null)
+            {
+                healthBar.SetMaxHealth(Health);
+            }
         }
 
         private void Update()
         {
             stateMachine?.Update();
+        }
+
+        public void HealthUpdate(float amount)
+        {
+            Health -= amount;
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(Health);
+            }
         }
 
         #region InputValues
@@ -49,10 +73,9 @@ namespace Cheeseinator
             moveVector = value;
         }
 
-        public void SetPunchBool(bool value)
+        public void TriggerPunch()
         {
-            pressedPunched = value;
-            Debug.Log("Punched: " + value);
+            stateMachine.SetState(punchState);
         }
         #endregion
     }

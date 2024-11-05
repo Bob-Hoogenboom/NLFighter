@@ -1,4 +1,5 @@
 using FSM;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Cheeseinator
@@ -9,6 +10,8 @@ namespace Cheeseinator
         private float _switchTime;
         private RaycastHit _hit;
         private bool _donePunching = false;
+
+        private float _damageMultiplier = 5f;
 
         public override void Start(CheeseinatorController runner)
         {
@@ -47,7 +50,7 @@ namespace Cheeseinator
         private void CheckHit(CheeseinatorController runner)
         {
             Vector3 pos = runner.transform.position;
-            Vector3 rayOrigin = new Vector3(pos.x, pos.y + 2, pos.z);
+            Vector3 rayOrigin = new Vector3(pos.x, pos.y + 1, pos.z);
 
             if (Physics.Raycast(rayOrigin, runner.transform.TransformDirection(Vector3.forward), out _hit, 5f))
             {
@@ -59,7 +62,10 @@ namespace Cheeseinator
                 if (_hit.transform.gameObject.TryGetComponent(out IFighter fighter))
                 {
                     //calculate how close you are to other fighter
+                    float dist = Vector3.Distance(_hit.transform.gameObject.transform.position, runner.transform.position);
+
                     //deal damage approximatly on your distance
+                    fighter.HealthUpdate(_damageMultiplier / dist);
                 }
             }
         }

@@ -26,12 +26,6 @@ namespace Cheeseinator
             {
                 onSwitch(runner.idleState);
             }
-
-            // Transition to punch when specific input is given
-            if (runner.pressedPunched)
-            {
-                onSwitch(runner.punchState);
-            }
         }
 
         public override void Complete(CheeseinatorController runner)
