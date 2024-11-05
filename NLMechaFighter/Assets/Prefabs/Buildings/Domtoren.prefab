@@ -111,7 +111,6 @@ MonoBehaviour:
   - {fileID: 4552362909809054540}
   - {fileID: 2595301554848978385}
   - {fileID: 1522376232926556609}
-  destructionPhaseIndex: 0
   OnNextPhase:
     m_PersistentCalls:
       m_Calls:
@@ -127,6 +126,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnFinalPhase:
+    m_PersistentCalls:
+      m_Calls: []
+  _scoreValue: 10
 --- !u!114 &3078423423256885497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b45c0ed376ed8429968f7f6e3feea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particlePrefab: {fileID: 6885540497635459107, guid: d4992ef676f48ff4f8f366d87e5803a7, type: 3}
 --- !u!1 &2595301554848978385
 GameObject:
   m_ObjectHideFlags: 0

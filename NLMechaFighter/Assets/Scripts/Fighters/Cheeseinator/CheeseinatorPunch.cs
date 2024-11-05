@@ -57,6 +57,7 @@ namespace Cheeseinator
                 if (_hit.transform.gameObject.TryGetComponent(out IDestroyable destroyable))
                 {
                     destroyable.DestructionUpdate();
+                    runner.AddScore(destroyable.scoreValue);
                 }
 
                 if (_hit.transform.gameObject.TryGetComponent(out IFighter fighter))
@@ -66,6 +67,7 @@ namespace Cheeseinator
 
                     //deal damage approximatly on your distance
                     fighter.HealthUpdate(_damageMultiplier / dist);
+                    runner.AddScore(Mathf.RoundToInt(_damageMultiplier / dist));
                 }
             }
         }

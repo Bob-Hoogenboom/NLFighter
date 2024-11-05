@@ -13,6 +13,10 @@ public class BuildingDestruction : MonoBehaviour, IDestroyable
     public UnityEvent OnNextPhase = new UnityEvent();
     public UnityEvent OnFinalPhase = new UnityEvent();
 
+    [SerializeField]
+    private int _scoreValue = 5;
+    public int scoreValue => _scoreValue;
+
     private void Start()
     {
         _boxCol = GetComponent<BoxCollider>();
