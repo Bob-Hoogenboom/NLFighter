@@ -6,6 +6,8 @@ public interface IFighter
     //health & damage type
     float Health { get; set; }
     void HealthUpdate(float amount);
+    int score { get; }
+    void AddScore(int score);
 
     //playerindex for Input
     int fighterIndex { get; }

@@ -32,6 +32,8 @@ namespace Millinator
             get => health;
             set => health = value;
         }
+        public int score { get; private set; }
+
         public HealthBar healthBar;
 
         [Header("Input")]
@@ -77,6 +79,11 @@ namespace Millinator
         public void TriggerPunch()
         {
             stateMachine.SetState(punchState);
+        }
+
+        public void AddScore(int score)
+        {
+            this.score += score;
         }
         #endregion
     }

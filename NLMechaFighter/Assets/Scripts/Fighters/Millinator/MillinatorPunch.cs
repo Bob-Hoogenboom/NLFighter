@@ -52,12 +52,12 @@ namespace Millinator
             Vector3 pos = runner.transform.position;
             Vector3 rayOrigin = new Vector3(pos.x, pos.y + 1, pos.z);
 
-
             if (Physics.Raycast(rayOrigin, runner.transform.TransformDirection(Vector3.forward), out _hit, 5f))
             {
                 if (_hit.transform.gameObject.TryGetComponent(out IDestroyable destroyable))
                 {
                     destroyable.DestructionUpdate();
+                    runner.AddScore(destroyable.scoreValue);
                 }
 
                 if (_hit.transform.gameObject.TryGetComponent(out IFighter fighter))
@@ -68,6 +68,7 @@ namespace Millinator
                     float dist = Vector3.Distance(_hit.transform.gameObject.transform.position, runner.transform.position);
 
                     fighter.HealthUpdate(_damageMultiplier / dist);
+                    runner.AddScore(Mathf.RoundToInt(_damageMultiplier / dist));
                 }
             }
         }
