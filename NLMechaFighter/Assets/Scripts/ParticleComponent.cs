@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class ParticleComponent : MonoBehaviour
 {
-    [SerializeField] private GameObject particlePrefab;
-
-    public void PlayParticle()
+    public void PlayParticle(GameObject particlePrefab)
     {
         GameObject emitterInstance = Instantiate(particlePrefab);
         ParticleSystem particleSystem = emitterInstance.GetComponent<ParticleSystem>();
@@ -15,7 +13,7 @@ public class ParticleComponent : MonoBehaviour
         StartCoroutine("PlayParticleCoroutine", particleSystem);
     }
 
-    public void PlayBoxParticle()
+    public void PlayBoxParticle(GameObject particlePrefab)
     {
         GameObject emitterInstance = Instantiate(particlePrefab);
         ParticleSystem particleSystem = emitterInstance.GetComponent<ParticleSystem>();
@@ -28,6 +26,18 @@ public class ParticleComponent : MonoBehaviour
         ExtendToBoxCollider(shapeModule);
 
         StartCoroutine("PlayParticleCoroutine", particleSystem);
+    }
+
+    public void PlayLoopingParticle(GameObject particlePrefab)
+    {
+        GameObject emitterInstance = Instantiate(particlePrefab, transform);
+        ParticleSystem particleSystem = emitterInstance.GetComponent<ParticleSystem>();
+        ParticleSystem.MainModule mainModule = particleSystem.main;
+        ParticleSystem.ShapeModule shapeModule = particleSystem.shape;
+        mainModule.loop = true;
+        //shapeModule.position = transform.position;
+
+        particleSystem.Play();
     }
 
     private IEnumerator PlayParticleCoroutine(ParticleSystem particleSystem)

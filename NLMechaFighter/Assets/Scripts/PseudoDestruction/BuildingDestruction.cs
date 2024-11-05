@@ -11,6 +11,7 @@ public class BuildingDestruction : MonoBehaviour, IDestroyable
     private LinkedListNode<GameObject> _currentPhase;
 
     public UnityEvent OnNextPhase = new UnityEvent();
+    public UnityEvent OnFinalPhase = new UnityEvent();
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class BuildingDestruction : MonoBehaviour, IDestroyable
 
         if (_currentPhase == _destructionPhases.Last)
         {
+            OnFinalPhase.Invoke();
             _boxCol.enabled = false;
             this.enabled = false; //failsave, disable entire script for security
         }
