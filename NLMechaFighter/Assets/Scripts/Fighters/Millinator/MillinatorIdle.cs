@@ -24,11 +24,6 @@ namespace Millinator
             {
                 onSwitch(runner.walkState);
             }
-
-            if (runner.pressedPunched)
-            {
-                onSwitch(runner.punchState);
-            }
         }
 
         public override void Complete(MillinatorController runner)

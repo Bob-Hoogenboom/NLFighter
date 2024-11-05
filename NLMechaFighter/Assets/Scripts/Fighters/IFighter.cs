@@ -4,9 +4,11 @@ using UnityEngine;
 public interface IFighter
 {
     //health & damage type
+    float Health { get; set; }
+    void HealthUpdate(float amount);
 
     //playerindex for Input
     int fighterIndex { get; }
     void SetMoveVector(Vector2 vector2);
-    void SetPunchBool(bool value);
+    void TriggerPunch();
 }

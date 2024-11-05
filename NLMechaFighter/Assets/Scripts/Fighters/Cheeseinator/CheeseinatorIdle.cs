@@ -25,10 +25,6 @@ namespace Cheeseinator
                 onSwitch(runner.walkState);
             }
 
-            if (runner.pressedPunched)
-            {
-                onSwitch(runner.punchState);
-            }
         }
 
         public override void Complete(CheeseinatorController runner)
