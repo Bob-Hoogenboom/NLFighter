@@ -491,6 +491,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1001545797 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3078423423256885497, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+  m_PrefabInstance: {fileID: 4958327914998008024}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b45c0ed376ed8429968f7f6e3feea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1390164720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2279578589091328538, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+  m_PrefabInstance: {fileID: 8866590866410836653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b45c0ed376ed8429968f7f6e3feea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1547410068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -657,6 +679,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Domtoren
       objectReference: {fileID: 0}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnNextPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1001545797}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayLoopingParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ParticleComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnNextPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 6885540497635459107, guid: d4992ef676f48ff4f8f366d87e5803a7, type: 3}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 4935815487643725438, guid: de9d8a47cca86634195c791c4484ec88, type: 3}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnNextPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4686893294203245968, guid: 50e7e225cd301a14f85d12a30cea5083, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -670,6 +736,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnNextPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1390164720}
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayLoopingParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ParticleComponent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnNextPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 6885540497635459107, guid: d4992ef676f48ff4f8f366d87e5803a7, type: 3}
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 4935815487643725438, guid: de9d8a47cca86634195c791c4484ec88, type: 3}
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnNextPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 603157073109876707, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
+      propertyPath: OnFinalPhase.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5706396503624858510, guid: 50fa4e6424c7b2441aec62510d222137, type: 3}
       propertyPath: m_Name
       value: House
