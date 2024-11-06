@@ -5,10 +5,15 @@ using UnityEngine.Events;
 public class BuildingDestruction : MonoBehaviour, IDestroyable
 {
     [SerializeField] private GameObject[] destructionPhase;
+    [SerializeField] private Gradient gradient;
+    [SerializeField] private Material materialColor;
+    private float _normalizedValue = 250f;
+ 
     private BoxCollider _boxCol;
 
     private LinkedList<GameObject> _destructionPhases = new LinkedList<GameObject>();
     private LinkedListNode<GameObject> _currentPhase;
+
 
     public UnityEvent OnNextPhase = new UnityEvent();
     public UnityEvent OnFinalPhase = new UnityEvent();
@@ -26,6 +31,9 @@ public class BuildingDestruction : MonoBehaviour, IDestroyable
             _destructionPhases.AddLast(phase);
         }
         _currentPhase = _destructionPhases.First;
+
+        float normalizedScore = Mathf.Clamp01(scoreValue / _normalizedValue);
+        materialColor.color = gradient.Evaluate(normalizedScore);
     }
 
     public void DestructionUpdate()

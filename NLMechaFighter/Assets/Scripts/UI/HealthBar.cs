@@ -21,5 +21,4 @@ public class HealthBar : MonoBehaviour
 
         fillColor.color = gradient.Evaluate(slider.normalizedValue);
     }
-
 }
