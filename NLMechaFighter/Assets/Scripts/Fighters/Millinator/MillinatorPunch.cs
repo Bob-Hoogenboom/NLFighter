@@ -11,7 +11,7 @@ namespace Millinator
         private RaycastHit _hit;
         private bool _donePunching = false;
 
-        private float _damageMultiplier = 5f;
+        private float _damageMultiplier = 10f;
 
         public override void Start(MillinatorController runner)
         {
