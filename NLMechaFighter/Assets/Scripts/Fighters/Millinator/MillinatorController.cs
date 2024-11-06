@@ -1,6 +1,5 @@
 using FSM;
 using UnityEngine;
-using UnityEngine.Events;
 
 
 namespace Millinator
@@ -12,6 +11,7 @@ namespace Millinator
         public Animator anim;
         public Rigidbody rb;
         public Transform cam;
+        [HideInInspector] public bool isStunned = false;
 
         [Header("StateMachine")]
         public StateMachine<MillinatorController> stateMachine;
@@ -21,16 +21,18 @@ namespace Millinator
         public MillinatorIdle idleState { get; private set; } = new MillinatorIdle();
         public MillinatorWalk walkState { get; private set; } = new MillinatorWalk();
         public MillinatorPunch punchState { get; private set; } = new MillinatorPunch();
+        public MillinatorDeath deathState { get; private set; } = new MillinatorDeath();
 
         [Header("IFighter")]
         [SerializeField] private int _fighterIndex; 
         public int fighterIndex => _fighterIndex;
 
         [SerializeField] private float health;
+        private float currentHealth;
         public float Health 
         {
             get => health;
-            set => health = value;
+            set => currentHealth = value;
         }
         public int score { get; private set; }
 
@@ -52,7 +54,9 @@ namespace Millinator
 
             if (healthBar != null)
             {
+                currentHealth = health;
                 healthBar.SetMaxHealth(Health);
+                Debug.Log("HP: " + Health);
             }
         }
 
@@ -63,10 +67,17 @@ namespace Millinator
 
         public void HealthUpdate(float amount)
         {
-            Health -= amount;
+            currentHealth -= amount;
             if (healthBar != null)
             {
-                healthBar.SetHealth(Health);
+                healthBar.SetHealth(currentHealth);
+
+                if (currentHealth <= 0 && !isStunned)
+                {
+                    stateMachine.SetState(deathState);
+                    isStunned = true;
+                    currentHealth = health;
+                }
             }
         }
 
@@ -78,7 +89,10 @@ namespace Millinator
 
         public void TriggerPunch()
         {
-            stateMachine.SetState(punchState);
+            if (!isStunned)
+            {
+                stateMachine.SetState(punchState);
+            }
         }
 
         public void AddScore(int score)

@@ -10,9 +10,9 @@ namespace Cheeseinator
         private float _switchTime;
         private RaycastHit _hit;
         private bool _donePunching = false;
+        private float punchDistance = 1f;
 
-        private float _damageMultiplier = 10f;
-        private float _punchRange = 1f;
+        private float _damageMultiplier = 20f;
 
         public override void Start(CheeseinatorController runner)
         {
@@ -53,7 +53,7 @@ namespace Cheeseinator
             Vector3 pos = runner.transform.position;
             Vector3 rayOrigin = new Vector3(pos.x, pos.y + 1, pos.z);
 
-            if (Physics.Raycast(rayOrigin, runner.transform.TransformDirection(Vector3.forward), out _hit, _punchRange))
+            if (Physics.Raycast(rayOrigin, runner.transform.TransformDirection(Vector3.forward), out _hit, punchDistance))
             {
                 if (_hit.transform.gameObject.TryGetComponent(out IDestroyable destroyable))
                 {
