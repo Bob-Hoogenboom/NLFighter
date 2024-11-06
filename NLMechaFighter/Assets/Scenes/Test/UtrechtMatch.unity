@@ -903,6 +903,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 300302672}
+    - target: {fileID: 447899808397388631, guid: 8e508e213cbb25d4fa8a03a34cad9351, type: 3}
+      propertyPath: _fighterIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2903110509059939162, guid: 8e508e213cbb25d4fa8a03a34cad9351, type: 3}
       propertyPath: m_Name
       value: Millinator
@@ -1141,6 +1145,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1813325278}
+    - target: {fileID: 206452301344654749, guid: 471808a2aa2147f47a04520812283e53, type: 3}
+      propertyPath: _fighterIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1362790534618880541, guid: 471808a2aa2147f47a04520812283e53, type: 3}
       propertyPath: m_Mass
       value: 0.2
