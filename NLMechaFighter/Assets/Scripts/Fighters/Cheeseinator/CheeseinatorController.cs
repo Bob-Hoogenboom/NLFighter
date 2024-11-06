@@ -11,6 +11,7 @@ namespace Cheeseinator
         public Animator anim;
         public Rigidbody rb;
         public Transform cam;
+        [HideInInspector] public bool isStunned = false;
 
         [Header("StateMachine")]
         public StateMachine<CheeseinatorController> stateMachine;
@@ -20,16 +21,18 @@ namespace Cheeseinator
         public CheeseinatorIdle idleState { get; private set; } = new CheeseinatorIdle();
         public CheeseinatorMove walkState { get; private set; } = new CheeseinatorMove();
         public CheeseinatorPunch punchState { get; private set; } = new CheeseinatorPunch();
+        public CheeseinatorDeath deathState { get; private set; } = new CheeseinatorDeath();
 
         [Header("IFighter")]
         [SerializeField] private int _fighterIndex;
         public int fighterIndex => _fighterIndex;
 
         [SerializeField] private float health;
+        private float currentHealth;
         public float Health
         {
             get => health;
-            set => health = value;
+            set => currentHealth = value;
         }
         public int score { get; private set; }
 
@@ -51,7 +54,9 @@ namespace Cheeseinator
 
             if (healthBar != null)
             {
+                currentHealth = health;
                 healthBar.SetMaxHealth(Health);
+                Debug.Log("HP: " + Health);
             }
         }
 
@@ -62,10 +67,17 @@ namespace Cheeseinator
 
         public void HealthUpdate(float amount)
         {
-            Health -= amount;
+            currentHealth -= amount;
             if (healthBar != null)
             {
-                healthBar.SetHealth(Health);
+                healthBar.SetHealth(currentHealth);
+
+                if (currentHealth <= 0 && !isStunned)
+                {
+                    stateMachine.SetState(deathState);
+                    isStunned = true;
+                    currentHealth = health;
+                }
             }
         }
 
@@ -77,7 +89,9 @@ namespace Cheeseinator
 
         public void TriggerPunch()
         {
-            stateMachine.SetState(punchState);
+            if (!isStunned) { 
+                stateMachine.SetState(punchState);
+            }
         }
 
         public void AddScore(int score)
