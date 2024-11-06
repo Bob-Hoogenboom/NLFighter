@@ -13,16 +13,16 @@ public class AudioComponent : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void PlaySound(int id)
-    {
-        if (id >= audios.Length) return;
-        PlaySound(audios[id]);
-    }
-
     public void PlaySound(string name)
     {
         AudioData audioData = audios.FirstOrDefault(data => data.name == name);
         if (audioData != null) PlaySound(audioData);
+    }
+
+    public void PlaySound(int id)
+    {
+        if (id >= audios.Length) return;
+        PlaySound(audios[id]);
     }
 
     private void PlaySound(AudioData audio)
@@ -35,6 +35,5 @@ public class AudioComponent : MonoBehaviour
         audioSource.volume = audio.volume;
         audioSource.pitch = 1f + Random.Range(-audio.pitchShiftRange, audio.pitchShiftRange);
         audioSource.PlayOneShot(currentClip);
-        Debug.Log("Played: " + currentClip.name);
     }
 }
