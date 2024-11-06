@@ -17,7 +17,7 @@ namespace Cheeseinator
             runner.anim.SetBool(_deathAnim, true);
             if (_switchTime <= 0)
             {
-                _switchTime = 3f; //#Fix Get Animation time 
+                _switchTime = 5f;
             }
         }
 
