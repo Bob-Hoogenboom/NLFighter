@@ -70,6 +70,17 @@ public partial class @MechInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""e43407e2-8d8e-4c2d-9bad-df6a72bb792e"",
+                    ""path"": ""<DualSenseGamepadHID>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Dualsense"",
+                    ""action"": ""Punch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""2D Vector"",
                     ""id"": ""9c9efa30-c12f-4dc3-92ae-833011e35c86"",
                     ""path"": ""2DVector"",
@@ -134,6 +145,17 @@ public partial class @MechInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9fd0cb87-064f-4c45-850c-c8bcf9a4e450"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Dualsense"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -156,6 +178,17 @@ public partial class @MechInputActions: IInputActionCollection2, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Dualsense"",
+            ""bindingGroup"": ""Dualsense"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<DualSenseGamepadHID>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -294,6 +327,15 @@ public partial class @MechInputActions: IInputActionCollection2, IDisposable
         {
             if (m_XboxOneSchemeIndex == -1) m_XboxOneSchemeIndex = asset.FindControlSchemeIndex("XboxOne");
             return asset.controlSchemes[m_XboxOneSchemeIndex];
+        }
+    }
+    private int m_DualsenseSchemeIndex = -1;
+    public InputControlScheme DualsenseScheme
+    {
+        get
+        {
+            if (m_DualsenseSchemeIndex == -1) m_DualsenseSchemeIndex = asset.FindControlSchemeIndex("Dualsense");
+            return asset.controlSchemes[m_DualsenseSchemeIndex];
         }
     }
     public interface IMovementActions
